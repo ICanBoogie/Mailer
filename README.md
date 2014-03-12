@@ -1,4 +1,4 @@
-# Mailer
+# Mailer [![Build Status](https://travis-ci.org/ICanBoogie/Mailer.png?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
 
 Mailer is a library for PHP that is designed to handle emails generation and sending.
 
@@ -127,8 +127,12 @@ required. The directory can later be cleaned with the `make clean` command.
 ## Testing
 
 The test suite is ran with the `make test` command. [Composer](http://getcomposer.org/) is
-automatically installed as well as all dependencies required to run the suite. The directory can
-later be cleaned with the `make clean` command.
+automatically installed as well as all the dependencies required to run the suite.
+The directory can later be cleaned with the `make clean` command.
+
+The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
+
+[![Build Status](https://travis-ci.org/ICanBoogie/Mailer.png?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
 
 
 

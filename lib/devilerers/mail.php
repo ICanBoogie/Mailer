@@ -14,7 +14,7 @@ namespace ICanBoogie\Mailer;
 /**
  * Delivers message using the `mail()` function.
  */
-class MailDeliverer implements Transport
+class MailDeliverer implements Deliverer
 {
 	public function deliver(Message $message)
 	{
