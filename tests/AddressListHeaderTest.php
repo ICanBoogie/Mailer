@@ -31,7 +31,8 @@ class AddressListHeaderTest extends \PHPUnit_Framework_TestCase
 			[ [ 'contact@example.com' => 'Mary Smith' ], 'Mary Smith <contact@example.com>' ],
 			[ [ 'contact@example.com' => 'Who?' ], 'Who? <contact@example.com>' ],
 			[ [ 'contact@example.com' => 'Giant; "Big" Box' ], '"Giant; \"Big\" Box" <contact@example.com>' ],
-			[ [ 'contact@acme.inc' => 'ACME, Inc.' ], '"ACME, Inc." <contact@acme.inc>' ]
+			[ [ 'contact@acme.inc' => 'ACME, Inc.' ], '"ACME, Inc." <contact@acme.inc>' ],
+			[ 'person1@example.com,person2@example.com', "person1@example.com,\r\n\tperson2@example.com" ]
 
 		];
 	}

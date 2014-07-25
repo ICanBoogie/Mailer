@@ -24,7 +24,7 @@ class AddressListHeader extends AddressList
 		{
 			if ($rc)
 			{
-				$rc .= "\r\n\t";
+				$rc .= ",\r\n\t";
 			}
 
 			if ($display_name === true)
