@@ -1,4 +1,4 @@
-# Mailer [![Build Status](https://travis-ci.org/ICanBoogie/Mailer.png?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
+# Mailer [![Build Status](https://travis-ci.org/ICanBoogie/Mailer.svg?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
 
 Mailer is a library for PHP that is designed to handle emails generation and sending.
 
@@ -50,9 +50,10 @@ following features:
 - The lazy getter for the `ICanBoogie\Core::$mailer` property that returns a [Mailer][] instance.
 - The `ICanBoogie\Core::mailer` method that sends a message using the mailer.
 
-```<?php
+```php
+<?php
 
-$core = new ICanBoogie\Core($auto_config);
+$core = new ICanBoogie\Core(ICanBoogie\get_autoconfig());
 
 $core->mailer; //instace of ICanBoogie\Mailer\Mailer;
 $core->mail([
@@ -132,7 +133,7 @@ The directory can later be cleaned with the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://travis-ci.org/ICanBoogie/Mailer.png?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
+[![Build Status](https://travis-ci.org/ICanBoogie/Mailer.svg?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
 
 
 
