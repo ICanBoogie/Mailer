@@ -38,11 +38,30 @@ class Hooks
 	 *
 	 * @return mixed
 	 */
-	static public function core_mail(Core $core, $message)
+	static public function core_mail(Core $core, $message, array $options=[])
 	{
+		$options += [
+
+			'sender' => null
+
+		];
+
 		$mailer = $core->mailer;
 		$message = Message::from($message);
+		$sender = $options['sender'];
 
-		return $mailer($message);
+		if ($sender && class_exists('ICanBoogie\Event'))
+		{
+			new BeforeMailEvent($sender, $message, $mailer);
+		}
+
+		$rc = $mailer($message);
+
+		if ($sender && class_exists('ICanBoogie\Event'))
+		{
+			new MailEvent($sender, $rc, $message, $mailer);
+		}
+
+		return $rc;
 	}
 }

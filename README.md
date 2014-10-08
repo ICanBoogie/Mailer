@@ -42,9 +42,9 @@ echo $message;         // Hello world!
 
 
 
-## ICanBoogie auto-config
+## ICanBoogie _auto-config_
 
-The package supports the auto-config feature of the framework [ICanBoogie][] and provides the
+The package supports the _auto-config_ feature of the framework [ICanBoogie][] and provides the
 following features:
 
 - The lazy getter for the `ICanBoogie\Core::$mailer` property that returns a [Mailer][] instance.
@@ -63,8 +63,24 @@ $core->mail([
 	'subject' => "Testing",
 	'body' => "Hello world!"
 
-]);
+], $options = []);
 ```
+
+
+
+
+### Before and after the message is sent
+
+If `sender` is defined in the `mail()` options the following events are triggered:
+
+- The `<class>:mail:before` event of class [BeforeMailEvent][] is fired before the message
+is sent by the mailer. Third parties may use this event to alter the message or the mailer that
+will be used to send it.
+- The `<class>:mail` event of class [MailEvent][] is fired after the message was sent by the
+mailer. Thir parties may use this event to alter the result returned by the mailer.
+
+Where `<class>` is the class of the sender.
+
 
 
 
@@ -78,7 +94,7 @@ $core->mail([
 
 ## Requirements
 
-The package requires PHP 5.3 or later.
+The package requires PHP 5.4 or later.
 
 
 
@@ -146,5 +162,7 @@ This package is licensed under the New BSD License - See the [LICENSE](LICENSE) 
 
 
 
+[BeforeMailEvent]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.BeforeMailEvent.html
 [ICanBoogie]: http://icanboogie.org
-[Mailer]: lib/mailer.php
+[Mailer]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.Mailer.html
+[MailEvent]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.MailEvent.html

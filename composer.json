@@ -22,6 +22,13 @@
 		"php": ">=5.4.0",
 		"icanboogie/common": "*"
 	},
+
+	"suggest": {
+
+		"icanboogie/event": "An event is fired to alter the message and the mailer before the message is sent."
+
+	},
+
 	"autoload": {
 		"classmap": [ "lib/" ]
 	},
