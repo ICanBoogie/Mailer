@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
 /**
  * Representation of the `From` header field.
  */
-class FromHeader extends AddressListHeader
+class From extends AddressList
 {
 
 }

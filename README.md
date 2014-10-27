@@ -77,10 +77,9 @@ If `sender` is defined in the `mail()` options the following events are triggere
 is sent by the mailer. Third parties may use this event to alter the message or the mailer that
 will be used to send it.
 - The `<class>:mail` event of class [MailEvent][] is fired after the message was sent by the
-mailer. Thir parties may use this event to alter the result returned by the mailer.
+mailer. Third parties may use this event to alter the result returned by the mailer.
 
 Where `<class>` is the class of the sender.
-
 
 
 
@@ -102,17 +101,10 @@ The package requires PHP 5.4 or later.
 
 ## Installation
 
-The recommended way to install this package is through [Composer](http://getcomposer.org/).
-Create a `composer.json` file and run `php composer.phar install` command to install it:
+The recommended way to install this package is through [Composer](http://getcomposer.org/):
 
-```json
-{
-	"minimum-stability": "dev",
-
-	"require": {
-		"icanboogie/mailer": "*"
-	}
-}
+```
+$ composer require icanboogie/mailer
 ```
 
 
@@ -125,7 +117,7 @@ Create a `composer.json` file and run `php composer.phar install` command to ins
 The package is [available on GitHub](https://github.com/ICanBoogie/Mailer), its repository can be
 cloned with the following command line:
 
-	$ git clone git://github.com/ICanBoogie/Mailer.git
+	$ git clone https://github.com/ICanBoogie/Mailer.git
 
 
 

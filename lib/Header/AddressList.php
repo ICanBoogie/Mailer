@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
 /**
  * Representation of a _addresses_ header.
  */
-class AddressListHeader extends AddressList
+class AddressList extends \ICanBoogie\Mailer\AddressList
 {
 	public function __toString()
 	{

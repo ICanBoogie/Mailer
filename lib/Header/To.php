@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
 /**
- * Representation of the `Cc` header field.
+ * Representation of the `To` header field.
  *
  * @see http://tools.ietf.org/html/rfc5322#section-3.6.3
  */
-class CcHeader extends AddressListHeader
+class To extends AddressList
 {
 
 }

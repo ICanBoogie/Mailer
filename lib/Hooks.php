@@ -24,8 +24,6 @@ class Hooks
 	 */
 	static public function core_lazy_get_mailer(Core $core)
 	{
-		// TODO-20140312: Create instance with a "mailer" configuration.
-
 		return new Mailer;
 	}
 

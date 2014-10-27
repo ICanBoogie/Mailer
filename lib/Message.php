@@ -36,10 +36,10 @@ use ICanBoogie\PropertyNotDefined;
  * $message->to = "Person name<person@domain.com>, person2@domain.com";
  * </pre>
  *
- * @property FromHeader $from
- * @property ToHeader $to Representation of the `To` header field.
- * @property CcHeader $cc Representation of the `Cc` header field.
- * @property BccHeader $bcc Representation of the `Bcc` header field.
+ * @property Header\From $from
+ * @property Header\To $to Representation of the `To` header field.
+ * @property Header\Cc $cc Representation of the `Cc` header field.
+ * @property Header\Bcc $bcc Representation of the `Bcc` header field.
  * @property-write string $type The message type, either "html" or "plain".
  */
 class Message extends MessagePart

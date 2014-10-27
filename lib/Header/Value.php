@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
-class ValueHeader
+class Value
 {
 	protected $value;
 

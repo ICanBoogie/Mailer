@@ -239,7 +239,7 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 	 * Returns a string representation of the instance.
 	 *
 	 * Note: The returned string is not suitable for a header field,
-	 * use a {@link AddressListHeader} instance for that.
+	 * use a {@link Header\AddressList} instance for that.
 	 *
 	 * @return string An address-list string that can be parsed by
 	 * the {@link parse()} method.

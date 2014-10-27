@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
-class AddressListHeaderTest extends \PHPUnit_Framework_TestCase
+class AddressListTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * @dataProvider provide_test_to_string
 	 */
 	public function test_to_string($from, $expected)
 	{
-		$h = AddressListHeader::from($from);
+		$h = AddressList::from($from);
 		$this->assertEquals($expected, (string) $h);
 	}
 

@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
+
+use ICanBoogie\Mailer\Header;
 
 class HeaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +26,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 	public function test_get_from()
 	{
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['From']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\FromHeader', self::$header['From']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\From', self::$header['From']);
 	}
 
 	public function test_set_from()
@@ -32,14 +34,14 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 		self::$header['From'] = self::$email;
 
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['From']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\FromHeader', self::$header['From']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\From', self::$header['From']);
 		$this->assertEquals(self::$email, (string) self::$header['From']);
 	}
 
 	public function test_get_to()
 	{
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['To']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\ToHeader', self::$header['To']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\To', self::$header['To']);
 	}
 
 	public function test_set_to()
@@ -47,7 +49,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 		self::$header['To'] = self::$email;
 
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['To']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\ToHeader', self::$header['To']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\To', self::$header['To']);
 
 		$this->assertEquals(self::$email, (string) self::$header['To']);
 	}
@@ -55,7 +57,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 	public function test_get_cc()
 	{
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['Cc']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\CcHeader', self::$header['Cc']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\Cc', self::$header['Cc']);
 	}
 
 	public function test_set_cc()
@@ -63,7 +65,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 		self::$header['Cc'] = self::$email;
 
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['Cc']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\CcHeader', self::$header['Cc']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\Cc', self::$header['Cc']);
 
 		$this->assertEquals(self::$email, (string) self::$header['Cc']);
 	}
@@ -71,7 +73,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 	public function test_get_bcc()
 	{
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['Bcc']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\BccHeader', self::$header['Bcc']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\Bcc', self::$header['Bcc']);
 	}
 
 	public function test_set_bcc()
@@ -79,7 +81,7 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
 		self::$header['Bcc'] = self::$email;
 
 		$this->assertInstanceOf('ICanBoogie\Mailer\AddressList', self::$header['Bcc']);
-		$this->assertInstanceOf('ICanBoogie\Mailer\BccHeader', self::$header['Bcc']);
+		$this->assertInstanceOf('ICanBoogie\Mailer\Header\Bcc', self::$header['Bcc']);
 
 		$this->assertEquals(self::$email, (string) self::$header['Bcc']);
 	}

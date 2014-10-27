@@ -20,12 +20,12 @@ class Header implements \ArrayAccess, \IteratorAggregate
 {
 	static private $mapping = [
 
-		'Content-Type'        => 'ICanBoogie\Mailer\ContentTypeHeader',
-		'From'                => 'ICanBoogie\Mailer\FromHeader',
-		'Reply-To'            => 'ICanBoogie\Mailer\ReplyToHeader',
-		'To'                  => 'ICanBoogie\Mailer\ToHeader',
-		'Cc'                  => 'ICanBoogie\Mailer\CcHeader',
-		'Bcc'                 => 'ICanBoogie\Mailer\BccHeader',
+		'Content-Type'        => 'ICanBoogie\Mailer\Header\ContentType',
+		'From'                => 'ICanBoogie\Mailer\Header\From',
+		'Reply-To'            => 'ICanBoogie\Mailer\Header\ReplyTo',
+		'To'                  => 'ICanBoogie\Mailer\Header\To',
+		'Cc'                  => 'ICanBoogie\Mailer\Header\Cc',
+		'Bcc'                 => 'ICanBoogie\Mailer\Header\Bcc',
 
 	];
 
@@ -55,7 +55,7 @@ class Header implements \ArrayAccess, \IteratorAggregate
 	/**
 	 * Returns the string representation of the instance.
 	 *
-	 * Header fields with empty string values are discarted.
+	 * Header fields with empty string values are discarded.
 	 *
 	 * @return string
 	 */

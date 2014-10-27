@@ -12,11 +12,9 @@
 namespace ICanBoogie\Mailer;
 
 /**
- * Representation of the `Bcc` header field.
- *
- * @see http://tools.ietf.org/html/rfc5322#section-3.6.3
+ * An interface for message deliverers.
  */
-class BccHeader extends AddressListHeader
+interface Deliverer
 {
-
+	public function deliver(Message $message);
 }

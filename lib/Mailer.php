@@ -14,7 +14,7 @@ namespace ICanBoogie\Mailer;
 /**
  * Message mailer.
  */
-class Mailer
+class Mailer implements Deliverer
 {
 	protected $deliverer;
 

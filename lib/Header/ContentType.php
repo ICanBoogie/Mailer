@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
-class ContentTypeHeader
+class ContentType
 {
 	public $type = 'text/plain';
 	public $charset = 'UTF-8';

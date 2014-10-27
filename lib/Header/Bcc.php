@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\Header;
 
 /**
- * An interface for message deliverers.
+ * Representation of the `Bcc` header field.
+ *
+ * @see http://tools.ietf.org/html/rfc5322#section-3.6.3
  */
-interface Deliverer
+class Bcc extends AddressList
 {
-	public function deliver(Message $message);
+
 }
