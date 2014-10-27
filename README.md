@@ -42,6 +42,39 @@ echo $message;         // Hello world!
 
 
 
+## Sending a message
+
+Messages are sent by a _deliverer_ through a [Mailer][] instance.
+
+The following example demonstrates how a mailer can be used to send emails using the default _mail_
+deliverer:
+
+```php
+<?php
+
+use ICanBoogie\Mailer\Mailer;
+
+$mailer = new Mailer;
+$rc = $mailer($message);
+```
+
+The following example demonstrates how a mailer can be used to send emails using the _file_
+deliverer:
+
+```php
+<?php
+
+use ICanBoogie\Mailer\Mailer;
+use ICanBoogie\Mailer\FileDeliverer;
+
+$mailer = new Mailer(new FileDeliverer('/path/to/my/file');
+$rc = $mailer($message);
+```
+
+
+
+
+
 ## ICanBoogie _auto-config_
 
 The package supports the _auto-config_ feature of the framework [ICanBoogie][] and provides the
@@ -53,10 +86,9 @@ following features:
 ```php
 <?php
 
-$core = new ICanBoogie\Core(ICanBoogie\get_autoconfig());
-
-$core->mailer; //instace of ICanBoogie\Mailer\Mailer;
-$core->mail([
+$app = ICanBoogie\boot();
+$app->mailer; //instace of ICanBoogie\Mailer\Mailer;
+$app->mail([
 
 	'to' => "example@example.com",
 	'from' => "me@example.com",
@@ -65,6 +97,7 @@ $core->mail([
 
 ], $options = []);
 ```
+
 
 
 
