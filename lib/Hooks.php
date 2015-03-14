@@ -18,25 +18,25 @@ class Hooks
 	/**
 	 * Returns a {@link Mailer} instance.
 	 *
-	 * @param Core $core
+	 * @param Core $app
 	 *
 	 * @return \ICanBoogie\Mailer\Mailer
 	 */
-	static public function core_lazy_get_mailer(Core $core)
+	static public function core_lazy_get_mailer(Core $app)
 	{
 		return new Mailer;
 	}
 
 	/**
-	 * Send the message using the mailer available at `$core->mailer`.
+	 * Send the message using the mailer available at `$app->mailer`.
 	 *
-	 * @param Core $core
-	 *
+	 * @param Core $app
 	 * @param array|Message $message A message source suitable for {@link Message::from()}.
+	 * @param array $options
 	 *
 	 * @return mixed
 	 */
-	static public function core_mail(Core $core, $message, array $options=[])
+	static public function core_mail(Core $app, $message, array $options = [])
 	{
 		$options += [
 
@@ -44,7 +44,9 @@ class Hooks
 
 		];
 
-		$mailer = $core->mailer;
+		/* @var $mailer Mailer */
+
+		$mailer = $app->mailer;
 		$message = Message::from($message);
 		$sender = $options['sender'];
 
