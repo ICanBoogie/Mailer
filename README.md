@@ -1,4 +1,12 @@
-# Mailer [![Build Status](https://travis-ci.org/ICanBoogie/Mailer.svg?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
+# Mailer
+
+[![Release](https://img.shields.io/packagist/v/icanboogie/mailer.svg)](https://packagist.org/packages/icanboogie/mailer)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/Mailer/master.svg)](http://travis-ci.org/ICanBoogie/Mailer)
+[![HHVM](https://img.shields.io/hhvm/icanboogie/mailer.svg)](http://hhvm.h4cc.de/package/icanboogie/mailer)
+[![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Mailer/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Mailer)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Mailer/master.svg)](https://coveralls.io/r/ICanBoogie/Mailer)
+[![Packagist](https://img.shields.io/packagist/dt/icanboogie/mailer.svg)](https://packagist.org/packages/icanboogie/mailer)
+
 
 Mailer is a library for PHP that is designed to handle emails generation and sending.
 
@@ -8,7 +16,7 @@ Mailer is a library for PHP that is designed to handle emails generation and sen
 
 ### Acknowledgement
 
-This package was inspired by the following softwares or articles:
+This package was inspired by the following software or articles:
 
 - <https://github.com/mikel/mail>
 - <http://swiftmailer.org/>
@@ -18,7 +26,15 @@ This package was inspired by the following softwares or articles:
 
 
 
-## Creating messages
+### ICanBoogie binding
+
+The package may be bound to [ICanBoogie][] with the [icanboogie/bind-mailer][] package.
+
+
+
+
+
+## Creating a message
 
 ```php
 <?php
@@ -33,6 +49,10 @@ $message = new Message([
 	'body' => "Hello world!"
 
 ]);
+
+# or
+
+$message = Message::from([ … ]);
 
 echo $message->header; // Content-Type: text/plain; charset=UTF-8\r\nFrom: Olivier Laviale <olivier@ex…
 echo $message;         // Hello world!
@@ -70,49 +90,6 @@ use ICanBoogie\Mailer\FileDeliverer;
 $mailer = new Mailer(new FileDeliverer('/path/to/my/file');
 $rc = $mailer($message);
 ```
-
-
-
-
-
-## ICanBoogie _auto-config_
-
-The package supports the _auto-config_ feature of the framework [ICanBoogie][] and provides the
-following features:
-
-- The lazy getter for the `ICanBoogie\Core::$mailer` property that returns a [Mailer][] instance.
-- The `ICanBoogie\Core::mailer` method that sends a message using the mailer.
-
-```php
-<?php
-
-$app = ICanBoogie\boot();
-$app->mailer; //instace of ICanBoogie\Mailer\Mailer;
-$app->mail([
-
-	'to' => "example@example.com",
-	'from' => "me@example.com",
-	'subject' => "Testing",
-	'body' => "Hello world!"
-
-], $options = []);
-```
-
-
-
-
-
-### Before and after the message is sent
-
-If `sender` is defined in the `mail()` options the following events are triggered:
-
-- The `<class>:mail:before` event of class [BeforeMailEvent][] is fired before the message
-is sent by the mailer. Third parties may use this event to alter the message or the mailer that
-will be used to send it.
-- The `<class>:mail` event of class [MailEvent][] is fired after the message was sent by the
-mailer. Third parties may use this event to alter the result returned by the mailer.
-
-Where `<class>` is the class of the sender.
 
 
 
@@ -158,9 +135,11 @@ cloned with the following command line:
 
 ## Documentation
 
-The documentation can be generated for the package and its dependencies with the `make doc`
-command. The documentation is generated in the `docs` directory. [ApiGen](http://apigen.org/) is
-required. The directory can later be cleaned with the `make clean` command.
+The package is documented as part of the [ICanBoogie][] framework
+[documentation][]. You can generate the documentation for the package
+and its dependencies with the `make doc` command. The documentation is generated in the
+`build/docs` directory. [ApiGen](http://apigen.org/) is required. The directory can later be
+cleaned with the `make clean` command.
 
 
 
@@ -168,13 +147,16 @@ required. The directory can later be cleaned with the `make clean` command.
 
 ## Testing
 
-The test suite is ran with the `make test` command. [Composer](http://getcomposer.org/) is
-automatically installed as well as all the dependencies required to run the suite.
-The directory can later be cleaned with the `make clean` command.
+The test suite is ran with the `make test` command. [PHPUnit](https://phpunit.de/) and
+[Composer](http://getcomposer.org/) need to be globally available to run the suite. The command
+installs dependencies as required. The `make test-coverage` command runs test suite and also
+creates an HTML coverage report in "build/coverage". The directory can later be cleaned with
+the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://travis-ci.org/ICanBoogie/Mailer.svg?branch=master)](https://travis-ci.org/ICanBoogie/Mailer)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/Mailer/master.svg)](http://travis-ci.org/ICanBoogie/Mailer)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Mailer/master.svg)](https://coveralls.io/r/ICanBoogie/Mailer)
 
 
 
@@ -182,12 +164,12 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-This package is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+**icanboogie/mailer** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
 
 
 
 
-[BeforeMailEvent]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.BeforeMailEvent.html
 [ICanBoogie]: http://icanboogie.org
-[Mailer]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.Mailer.html
-[MailEvent]: http://icanboogie.org/docs/class-ICanBoogie.Mailer.MailEvent.html
+[icanboogie/bind-mailer]: https://github.com/ICanBoogie/bind-mailer
+[documentation]: http://api.icanboogie.org/mailer/1.1/
+[Mailer]: http://api.icanboogie.org/mailer/1.1/class-ICanBoogie.Mailer.Mailer.html

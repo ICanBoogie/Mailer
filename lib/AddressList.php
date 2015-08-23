@@ -166,7 +166,7 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 	 * @param array $address_list An address list, such as one provided by
 	 * the {@link parse()} method.
 	 */
-	public function __construct(array $address_list=array())
+	public function __construct(array $address_list = array())
 	{
 		foreach ($address_list as $mailbox => $display_name)
 		{
@@ -184,7 +184,9 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 	/**
 	 * Checks if the recipient exists in the collection.
 	 *
-	 * @return `true` if the recipient exists, `false` otherwise.
+	 * @param string $mailbox
+	 *
+	 * @return bool `true` if the recipient exists, `false` otherwise.
 	 */
 	public function offsetExists($mailbox)
 	{
@@ -192,7 +194,12 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 	}
 
 	/**
-	 * Add or set a recipient.
+	 * Adds or sets a recipient.
+	 *
+	 * @param string $mailbox
+	 * @param string $display_name
+	 *
+	 * @throws \InvalidArgumentException when `$mailbox` is not a valid email address.
 	 */
 	public function offsetSet($mailbox, $display_name)
 	{
@@ -214,6 +221,8 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 	 * Returns the recipient name.
 	 *
 	 * @param string $mailbox The email of the recipient.
+	 *
+	 * @return string
 	 */
 	public function offsetGet($mailbox)
 	{
@@ -230,6 +239,9 @@ class AddressList implements \ArrayAccess, \IteratorAggregate
 		unset($this->address_list[$mailbox]);
 	}
 
+	/**
+	 * @return \ArrayIterator
+	 */
 	public function getIterator()
 	{
 		return new \ArrayIterator($this->address_list);

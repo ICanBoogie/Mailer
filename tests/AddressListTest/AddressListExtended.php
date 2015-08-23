@@ -9,17 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie\Mailer;
+namespace ICanBoogie\Mailer\AddressListTest;
 
-$hooks = __NAMESPACE__ . '\Hooks::';
+use ICanBoogie\Mailer\AddressList;
 
-return [
+class AddressListExtended extends AddressList
+{
 
-	'prototypes' => [
-
-		'ICanBoogie\Core::lazy_get_mailer' => $hooks . 'core_lazy_get_mailer',
-		'ICanBoogie\Core::mail' => $hooks . 'core_mail'
-
-	]
-
-];
+}

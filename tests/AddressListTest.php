@@ -17,6 +17,9 @@ class AddressListTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * @dataProvider provide_test_encode_display_name
+	 *
+	 * @param string $display_name
+	 * @param string $expected
 	 */
 	public function test_encode_display_name($display_name, $expected)
 	{
@@ -138,11 +141,4 @@ EOT
 
 		$this->assertEquals('person1@example.com, person2@example.org, Person 3 Name <person3@example.net>, person4@example.org, Pérsôn 5 Nàmè <person5@example.net>', (string) $r);
 	}
-}
-
-namespace ICanBoogie\Mailer\AddressListTest;
-
-class AddressListExtended extends \ICanBoogie\Mailer\AddressList
-{
-
 }

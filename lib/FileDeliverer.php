@@ -17,13 +17,22 @@ namespace ICanBoogie\Mailer;
  */
 class FileDeliverer implements Deliverer
 {
+	/**
+	 * @var string
+	 */
 	protected $location;
 
+	/**
+	 * @param string $location
+	 */
 	public function __construct($location)
 	{
 		$this->location = $location;
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function deliver(Message $message)
 	{
 		$location = $this->location . DIRECTORY_SEPARATOR;

@@ -19,7 +19,6 @@ class MailerTest extends \PHPUnit_Framework_TestCase
 	{
 		$deliverer = new FakeDeliverer;
 		$mailer = new Mailer($deliverer);
-
 		$message = new Message([
 
 			'subject' => "Ûn süjét bièn chôsî",
@@ -33,21 +32,5 @@ class MailerTest extends \PHPUnit_Framework_TestCase
 		$mailer($message);
 
 		$this->assertSame($message, $deliverer->message);
-	}
-}
-
-namespace ICanBoogie\Mailer\MailerTest;
-
-use ICanBoogie\Mailer\Deliverer;
-use ICanBoogie\Mailer\Mailer;
-use ICanBoogie\Mailer\Message;
-
-class FakeDeliverer implements Deliverer
-{
-	public $message;
-
-	public function deliver(Message $message)
-	{
-		$this->message = $message;
 	}
 }

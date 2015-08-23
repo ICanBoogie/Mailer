@@ -16,9 +16,15 @@ namespace ICanBoogie\Mailer;
  */
 class Mailer implements Deliverer
 {
+	/**
+	 * @var Deliverer
+	 */
 	protected $deliverer;
 
-	public function __construct($deliverer=null)
+	/**
+	 * @param Deliverer|null $deliverer If `null` a {@link MailDeliverer} instance is created.
+	 */
+	public function __construct($deliverer = null)
 	{
 		if (!$deliverer)
 		{
@@ -28,11 +34,21 @@ class Mailer implements Deliverer
 		$this->deliverer = $deliverer;
 	}
 
+	/**
+	 * @param Message $message
+	 *
+	 * @return bool
+	 *
+	 * @see {@link deliver()}
+	 */
 	public function __invoke(Message $message)
 	{
 		return $this->deliver($message);
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function deliver(Message $message)
 	{
 		return $this->deliverer->deliver($message, $this);

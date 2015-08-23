@@ -15,6 +15,9 @@ class AddressListTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * @dataProvider provide_test_to_string
+	 *
+	 * @param mixed $from
+	 * @param string $expected
 	 */
 	public function test_to_string($from, $expected)
 	{

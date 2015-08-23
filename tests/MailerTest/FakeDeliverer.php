@@ -9,7 +9,17 @@
  * file that was distributed with this source code.
  */
 
-$autoload = require __DIR__ . '/../vendor/autoload.php';
-$autoload->addPsr4('ICanBoogie\Mailer\\', __DIR__);
+namespace ICanBoogie\Mailer\MailerTest;
 
-define('ICanBoogie\Mailer\REPOSITORY', __DIR__ . DIRECTORY_SEPARATOR . 'repository');
+use ICanBoogie\Mailer\Deliverer;
+use ICanBoogie\Mailer\Message;
+
+class FakeDeliverer implements Deliverer
+{
+	public $message;
+
+	public function deliver(Message $message)
+	{
+		$this->message = $message;
+	}
+}

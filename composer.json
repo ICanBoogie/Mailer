@@ -21,22 +21,7 @@
 		"php": ">=5.4.0",
 		"icanboogie/common": "~1.2"
 	},
-
-	"suggest": {
-
-		"icanboogie/event": "An event is fired to alter the message and the mailer before the message is sent."
-
-	},
-
 	"autoload": {
 		"psr-4": { "ICanBoogie\\Mailer\\": "lib" }
-	},
-
-	"extra": {
-
-		"icanboogie": {
-
-			"config-path": "config"
-		}
 	}
 }

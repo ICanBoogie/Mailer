@@ -16,6 +16,9 @@ namespace ICanBoogie\Mailer;
  */
 class MailDeliverer implements Deliverer
 {
+	/**
+	 * @inheritdoc
+	 */
 	public function deliver(Message $message)
 	{
 		$to = (string) $message->to;

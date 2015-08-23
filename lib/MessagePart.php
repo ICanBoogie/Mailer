@@ -16,14 +16,21 @@ use ICanBoogie\PropertyNotDefined;
 /**
  * Representation of a message part.
  *
- * @property-read Header The {@link Header} of the message part.
+ * @property-read Header $header The {@link Header} of the message part.
  */
 class MessagePart
 {
+	/**
+	 * @var Header
+	 */
 	protected $header;
+
+	/**
+	 * @var string
+	 */
 	public $body;
 
-	public function __construct($body, array $header_fields=[])
+	public function __construct($body, array $header_fields = [])
 	{
 		$this->header = new Header($header_fields);
 		$this->body = $body;

@@ -32,11 +32,11 @@ class Header implements \ArrayAccess, \IteratorAggregate
 	/**
 	 * Header fields.
 	 *
-	 * @var array[string]mixed
+	 * @var array
 	 */
 	protected $fields = [];
 
-	public function __construct(array $fields=[])
+	public function __construct(array $fields = [])
 	{
 		foreach ($fields as $field => $value)
 		{
@@ -135,6 +135,8 @@ class Header implements \ArrayAccess, \IteratorAggregate
 
 	/**
 	 * Removes a header field.
+	 *
+	 * @param string $field
 	 */
 	public function offsetUnset($field)
 	{
@@ -143,6 +145,8 @@ class Header implements \ArrayAccess, \IteratorAggregate
 
 	/**
 	 * Returns an iterator for the header fields.
+	 *
+	 * @return \ArrayIterator
 	 */
 	public function getIterator()
 	{
